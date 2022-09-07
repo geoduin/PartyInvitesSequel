@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Formulierpagina</title>
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/PartyInvitesSequel.styles.css" asp-append-version="true" />
+    </head>
+    <body>
+        <header>
+            <nav class="navbar navbar-brand navbar-toggleable navbar-light bg-info border-bottom box-shadow mb-3">
+            
+            </nav>
+        </header>
+        <!--Main body-->
+        <div>
+            <main class="text-center">
+                @RenderBody()
+            </main>
+        </div>
+        <!--Footer-->
+        <footer class="bg-light">
+            <div class="container">
+                Einde in zicht
+            </div>
+        </footer>
+    </body>
+</html>

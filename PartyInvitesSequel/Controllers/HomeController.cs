@@ -12,6 +12,7 @@ namespace PartyInvitesSequel.Controllers
 
         public HomeController(ILogger<HomeController> logger, IPersonList list)
         {
+            Console.WriteLine("Dependency injection is happening Home");
             _logger = logger;
             this.list = list;
         }
@@ -28,6 +29,12 @@ namespace PartyInvitesSequel.Controllers
         {
             Console.WriteLine("Gaat naar privacy pagina");
             return View();
+        }
+
+        [HttpGet]
+        public IActionResult CandidateList()
+        {
+            return View(list);
         }
 
     }

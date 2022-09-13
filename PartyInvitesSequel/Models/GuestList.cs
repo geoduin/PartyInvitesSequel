@@ -12,5 +12,15 @@ namespace PartyInvitesSequel.Models
         {
             list.Add(guest);
         }
+
+        public Guest GetGuest(int index)
+        {
+            return list[index];
+        }
+
+        public int Size()
+        {
+            return list.Count;
+        }
     }
 }

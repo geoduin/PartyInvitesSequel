@@ -10,6 +10,7 @@ namespace PartyInvitesSequel.Controllers
 
         public FormController(IPersonList list)
         {
+            Console.WriteLine("Dependency injection is happening formcontroller");
             this.list = (GuestList?)list;
         }
 

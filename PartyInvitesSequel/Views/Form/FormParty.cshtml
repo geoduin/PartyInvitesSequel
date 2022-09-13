@@ -3,6 +3,7 @@
 *@
 @{
     Layout = "_StartPage";
+    ViewData["Title"] = "Formulier";
 }
 @model PartyInvitesSequel.Models.Guest
 <h1>Hallo form party</h1>
@@ -12,19 +13,19 @@
 <form asp-action="FormParty" method="post">
     <div></div>
     <div>
-        <label asp-for="Name">Naam</label>
-        <input asp-for="Name"/>
+        <label class ="form-label" asp-for="Name">Naam</label>
+        <input class="" asp-for="Name" />
     </div>
     <div>
-        <label asp-for="Email">Emailadres</label>
-        <input asp-for="Email"/>
+        <label class="form-label" asp-for="Email">Emailadres</label>
+        <input class="col" asp-for="Email" />
+    </div>
+    <div class="col-auto">
+        <label class="form-label" asp-for="Phone">Telefoonnummer</label>
+        <input class="" asp-for="Phone"/>
     </div>
     <div>
-        <label asp-for="Phone">Telefoonnummer</label>
-        <input asp-for="Phone"/>
-    </div>
-    <div>
-        <label asp-for="WillAttend">Wilt u aanwezig zijn?</label>
+        <label class="form-label" asp-for="WillAttend">Wilt u aanwezig zijn?</label>
         <select asp-for="WillAttend">
             <option value="">Kies</option>
             <option value="true">Ja</option>
@@ -32,5 +33,5 @@
         </select>
     </div>
 
-    <button action="submit">Druk verder</button>
+    <button class="btn btn-primary" action="submit">Druk verder</button>
 </form>

@@ -24,15 +24,17 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-//Mapping to other Controller and view
-app.MapControllerRoute(
-    name: "Form",
-    pattern: "Candidate/List",
-    defaults: new { controller = "Candidate", action = "CandidateList" });
+
 
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+app.MapDefaultControllerRoute();
+//Mapping to other Controller and view
+app.MapControllerRoute(
+    name: "FormParty",
+    pattern: "Form_Party/{index?}",
+    defaults: new { controller = "Profile", action = "Profile" });
 
 app.Run();

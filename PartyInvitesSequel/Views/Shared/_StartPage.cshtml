@@ -8,7 +8,7 @@
 
 <html>
     <head>
-        <title>Formulierpagina</title>
+    <title>Party-invites @ViewData["Title"]</title>
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
         <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
         <link rel="stylesheet" href="~/PartyInvitesSequel.styles.css" asp-append-version="true" />
@@ -21,7 +21,10 @@
         </header>
         <!--Main body-->
         <div>
-            <main class="text-center">
+            <div class="mx-2">
+                @await Component.InvokeAsync("Count")
+            </div>
+            <main>
                 @RenderBody()
             </main>
         </div>

@@ -17,6 +17,6 @@ namespace PartyInvitesSequel.Models
             return View(items);
         }
 
-        private async Task<List<Guest>> GetItemAsync() => _guestList.GetAll.ToList();
+        private async Task<List<Guest>> GetItemAsync() => _guestList.list.ToList();
     }
 }

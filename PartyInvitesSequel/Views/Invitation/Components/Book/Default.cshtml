@@ -5,12 +5,12 @@
 }
 @model GuestList
 
-@for (int i = 0; i < GuestList.list.Count; i++)
+@for (int i = 0; i < GuestList.Instance().list.Count; i++)
 {
             <tr>
-                <td >@GuestList.list[i].Name</td>
-                <td>@GuestList.list[i].Email</td>
-                <td>@GuestList.list[i].Phone</td>
+        <td>@GuestList.Instance().list[i].Name</td>
+        <td>@GuestList.Instance().list[i].Email</td>
+        <td>@GuestList.Instance().list[i].Phone</td>
                 <td><a asp-action="Profile" asp-controller="Profile" asp-route-id="i">Ga verder naar pagina</a></td>
             </tr>
         }

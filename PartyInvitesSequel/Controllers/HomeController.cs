@@ -9,12 +9,13 @@ namespace PartyInvitesSequel.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private IPersonList list;
+        private Repository<Guest> guestRepository;
 
-        public HomeController(ILogger<HomeController> logger, IPersonList list)
+        public HomeController(IPersonList list)
         {
             Console.WriteLine("Dependency injection is happening Home");
-            _logger = logger;
             this.list = list;
+            Console.WriteLine($"Dependency injection is happening Home {guestRepository.GetType().Name}");
         }
 
         [HttpGet]

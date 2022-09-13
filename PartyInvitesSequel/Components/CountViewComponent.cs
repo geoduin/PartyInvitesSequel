@@ -14,7 +14,7 @@ namespace PartyInvitesSequel.Components
 
        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View(L.GetAll.Count);
+            return View(L.list.Count);
         }
     }
 }

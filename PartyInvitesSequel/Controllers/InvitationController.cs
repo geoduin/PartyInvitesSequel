@@ -10,7 +10,7 @@ namespace PartyInvitesSequel.Controllers
         public InvitationController(IPersonList list)
         {
             Console.WriteLine("Dependency injection is happening Invitation");
-            _list = (GuestList)list;
+            _list = list;
         }
         public IActionResult Invitation()
         {

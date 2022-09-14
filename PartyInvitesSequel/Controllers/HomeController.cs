@@ -8,20 +8,19 @@ namespace PartyInvitesSequel.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private IPersonList list;
+        private IRepository<Guest> guestRepository;
 
-        public HomeController(ILogger<HomeController> logger, IPersonList list)
+        public HomeController(ILogger<HomeController> logger, IRepository<Guest> guestRepository)
         {
             Console.WriteLine("Dependency injection is happening Home");
             _logger = logger;
-            this.list = list;
+            this.guestRepository = guestRepository;
         }
 
         [HttpGet]
         public IActionResult Index()
         {
             Console.WriteLine("Welkom op startpagina");
-            list.ToString();
             return View();
         }
 
@@ -34,7 +33,7 @@ namespace PartyInvitesSequel.Controllers
         [HttpGet]
         public IActionResult CandidateList()
         {
-            return View(list);
+            return View();
         }
 
     }

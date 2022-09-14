@@ -6,15 +6,14 @@ namespace PartyInvitesSequel.Controllers
 {
     public class InvitationController : Controller
     {
-        private readonly IPersonList _list;
-        public InvitationController(IPersonList list)
+        public InvitationController()
         {
             Console.WriteLine("Dependency injection is happening Invitation");
-            _list = (GuestList)list;
         }
         public IActionResult Invitation()
         {
-            return View(_list);
+            Console.WriteLine("Invitations are wrong");
+            return View();
         }
     }
 }

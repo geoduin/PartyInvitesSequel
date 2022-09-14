@@ -7,14 +7,16 @@ namespace PartyInvitesSequel.Components
     public class CountViewComponent : ViewComponent
     {
         public GuestList L;
-        public CountViewComponent(IPersonList list)
+        public IRepository<Guest> GuestRepository;
+        public CountViewComponent(IPersonList list, IRepository<Guest> guestRepository)
         {
             L = (GuestList?)list;
+            GuestRepository = guestRepository;
         }
 
-       public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
-            return View(L.GetAll.Count);
+            return View(GuestRepository.GetValues().Count);
         }
     }
 }

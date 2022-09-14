@@ -6,19 +6,19 @@ namespace PartyInvitesSequel.Controllers
 {
     public class FormController : Controller
     {
-        private GuestList list;
+        private IRepository<Guest> listRepository;
 
-        public FormController(IPersonList list)
+        public FormController(IRepository<Guest> listRepository)
         {
             Console.WriteLine("Dependency injection is happening formcontroller");
-            this.list = (GuestList?)list;
+            this.listRepository = listRepository;
         }
 
         [HttpGet]
         public IActionResult FormParty()
         {
             Console.WriteLine("Post FormParty");
-            foreach(Guest a in list.GetAll)
+            foreach(Guest a in listRepository.GetValues())
             {
                 Console.WriteLine(a.Name);
             }
@@ -31,7 +31,7 @@ namespace PartyInvitesSequel.Controllers
             if (ModelState.IsValid)
             {
                 Console.WriteLine(gast);
-                list.AddPersonToList(gast);
+                listRepository.AddValue(gast);
                 return View("../Home/Index");
             }
             return View();

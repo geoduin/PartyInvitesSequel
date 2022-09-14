@@ -1,14 +1,15 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PartyInvitesSequel.Models.Interfaces;
 
 namespace PartyInvitesSequel.Models
 {
     public class GuestSummary : ViewComponent
     {
-        private GuestList _guestList;
+        private IRepository<Guest> _guestRepository;
 
-        public GuestSummary(GuestList guestList)
+        public GuestSummary(IRepository<Guest> repo)
         {
-            _guestList = guestList;
+            _guestRepository = repo;
         }
 
        public async Task<IViewComponentResult> InvokeAsync()
@@ -17,6 +18,6 @@ namespace PartyInvitesSequel.Models
             return View(items);
         }
 
-        private async Task<List<Guest>> GetItemAsync() => _guestList.GetAll.ToList();
+        private async Task<List<Guest>> GetItemAsync() => _guestRepository.GetValues();
     }
 }

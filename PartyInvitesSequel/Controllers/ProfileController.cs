@@ -6,26 +6,26 @@ namespace PartyInvitesSequel.Controllers
 {
     public class ProfileController : Controller
     {
-        public IPersonList _list;
+        private IRepository<Guest> repository;
 
-        public ProfileController(IPersonList list)
+        public ProfileController(IRepository<Guest> repository)
         {
             Console.WriteLine("Dependency injection Profile");
-            _list = list;
+            this.repository = repository;
         }
 
         public IActionResult Profile(int index)
         {
-            if(_list.Size() == 0)
+            if(repository.GetValues().Count == 0)
             {
                 Console.WriteLine($"User list is still empty");
                 return NotFound();
-            } else if(_list.Size() < index)
+            } else if(repository.GetValues().Count < index)
             {
                 Console.WriteLine($"No User with index {index} is found in the list.");
                 return BadRequest();
             }
-            Guest guest = _list.GetGuest(index);
+            Guest guest = repository.GetFromList(index);
             return View(guest);
         }
     }

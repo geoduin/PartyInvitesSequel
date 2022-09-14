@@ -5,5 +5,6 @@
         void AddPersonToList(Guest guest);
         Guest GetGuest(int index);
         int Size();
+        void SetList(List<Guest> list);
     }
 }

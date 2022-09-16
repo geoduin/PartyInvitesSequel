@@ -1,12 +1,18 @@
+using Microsoft.EntityFrameworkCore;
+using PartyInvitesSequel.Data;
 using PartyInvitesSequel.Models;
 using PartyInvitesSequel.Models.Interfaces;
+using PartyInvitesSequel.Models.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
+//Services to container
+string ConnectionString = builder.Configuration.GetConnectionString("Default");
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton<IPersonList, GuestList>();
 builder.Services.AddScoped<IRepository<Guest>, GuestRepository>();
+builder.Services.AddDbContext<DatabaseContext>(options => options.UseSqlServer(ConnectionString));
 
 var app = builder.Build();
 

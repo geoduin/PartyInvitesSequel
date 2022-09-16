@@ -20,7 +20,7 @@ namespace PartyInvitesSequel.Controllers
             {
                 Console.WriteLine($"User list is still empty");
                 return NotFound();
-            } else if(repository.GetValues().Count < index)
+            } else if(repository.GetValues().Count <= index)
             {
                 Console.WriteLine($"No User with index {index} is found in the list.");
                 return BadRequest();

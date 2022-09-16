@@ -30,9 +30,9 @@ namespace PartyInvitesSequel.Controllers
         {
             if (ModelState.IsValid)
             {
-                Console.WriteLine(gast);
                 listRepository.AddValue(gast);
-                return View("../Home/Index");
+                //return View("../Home/Index");
+                return RedirectToAction(actionName: nameof(Index), controllerName: "Home");
             }
             return View();
         }

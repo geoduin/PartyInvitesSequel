@@ -1,14 +1,17 @@
-﻿using PartyInvitesSequel.Models.Interfaces;
+﻿using PartyInvitesSequel.Data;
+using PartyInvitesSequel.Models.Interfaces;
 
-namespace PartyInvitesSequel.Models
+namespace PartyInvitesSequel.Models.Repositories
 {
     public class GuestRepository : IRepository<Guest>
     {
         private GuestList IMemDB;
+        private DatabaseContext dataContext;
 
-        public GuestRepository()
+        public GuestRepository(DatabaseContext context)
         {
             IMemDB = GuestList.Instance();
+            dataContext = context;
         }
 
         public void AddValue(Guest value)

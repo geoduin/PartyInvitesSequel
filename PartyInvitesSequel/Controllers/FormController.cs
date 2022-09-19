@@ -37,6 +37,11 @@ namespace PartyInvitesSequel.Controllers
             return View();
         }
 
+        public IActionResult Login()
+        {
+            return View();
+        }
+
         public IActionResult BASIC()
         {
             Console.WriteLine("Post BASIC");

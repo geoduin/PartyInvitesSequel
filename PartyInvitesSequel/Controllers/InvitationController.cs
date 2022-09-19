@@ -12,6 +12,7 @@ namespace PartyInvitesSequel.Controllers
         }
         public IActionResult Invitation()
         {
+            Console.WriteLine("Retrieval is here");
             Console.WriteLine("Invitations are wrong");
             return View();
         }

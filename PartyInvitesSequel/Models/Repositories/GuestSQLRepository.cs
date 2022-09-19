@@ -17,6 +17,11 @@ namespace PartyInvitesSequel.Models.Repositories
             throw new NotImplementedException();
         }
 
+        public void DeleteValue(int i)
+        {
+            throw new NotImplementedException();
+        }
+
         public Guest GetFromList(int index)
         {
             throw new NotImplementedException();

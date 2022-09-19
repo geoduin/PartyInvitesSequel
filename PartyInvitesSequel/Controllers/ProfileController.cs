@@ -16,17 +16,26 @@ namespace PartyInvitesSequel.Controllers
 
         public IActionResult Profile(int index)
         {
-            if(repository.GetValues().Count == 0)
+            if (repository.GetValues().Count == 0)
             {
                 Console.WriteLine($"User list is still empty");
                 return NotFound();
-            } else if(repository.GetValues().Count <= index)
+            }
+            else if (repository.GetValues().Count <= index)
             {
                 Console.WriteLine($"No User with index {index} is found in the list.");
                 return BadRequest();
             }
             Guest guest = repository.GetFromList(index);
             return View(guest);
+        }
+
+        public IActionResult DeletionOfGuest(int i)
+        {
+            Console.WriteLine("Deletion is here");
+            Guest guest = repository.GetFromList(i);
+            repository.DeleteValue(i);
+            return RedirectToAction(controllerName: "Invitation", actionName: "Invitation");
         }
     }
 }

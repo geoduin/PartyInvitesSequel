@@ -1,4 +1,5 @@
 ﻿using PartyInvitesSequel.Data;
+using PartyInvitesSequel.Models.Helpers;
 using PartyInvitesSequel.Models.Interfaces;
 
 namespace PartyInvitesSequel.Models.Repositories
@@ -14,9 +15,12 @@ namespace PartyInvitesSequel.Models.Repositories
             dataContext = context;
         }
 
-        public void AddValue(Guest value)
+        //In memory-database
+        public async void AddValue(Guest value)
         {
             IMemDB.AddPersonToList(value);
+            //Inserts into database
+            dataContext.InsertGuest(value);
         }
 
         public Guest GetFromList(int index)
@@ -26,7 +30,15 @@ namespace PartyInvitesSequel.Models.Repositories
 
         public List<Guest> GetValues()
         {
+            IMemDB.list = dataContext.SelectAllGuests();
             return IMemDB.list;
+        }
+
+        public void DeleteValue(int i)
+        {
+            Guest g = IMemDB.GetGuest(i);
+            dataContext.DeleteGuest(g);
+
         }
 
         public void RemoveValue()

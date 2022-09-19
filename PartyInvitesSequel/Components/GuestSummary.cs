@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using PartyInvitesSequel.Models;
 using PartyInvitesSequel.Models.Interfaces;
 
-namespace PartyInvitesSequel.Models
+namespace PartyInvitesSequel.Components
 {
     public class GuestSummary : ViewComponent
     {
@@ -12,7 +13,7 @@ namespace PartyInvitesSequel.Models
             _guestRepository = repo;
         }
 
-       public async Task<IViewComponentResult> InvokeAsync()
+        public async Task<IViewComponentResult> InvokeAsync()
         {
             var items = await GetItemAsync();
             return View(items);

@@ -7,7 +7,8 @@ namespace PartyInvitesSequel.Models
         public int Id { get; set; }
         [Required(ErrorMessage = "Naam moet ingevuld zijn.")]
         public string? Name { get; set; }
-        [EmailAddress(ErrorMessage = "Emailadres moet ingevuld zijn en volgens de juiste format.")]
+        [EmailAddress(ErrorMessage = "Emailadres moet in de juiste format")]
+        [Required(ErrorMessage = "Emailadres moet ingevuld zijn.")]
         public string? Email { get; set; } 
         [Required(ErrorMessage ="Telefoonnummer moet ingevuld zijn")]
         public string? Phone { get; set; }

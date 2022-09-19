@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PartyInvitesSequel.Models;
+using PartyInvitesSequel.Models.Helpers;
 using PartyInvitesSequel.Models.Interfaces;
 
 namespace PartyInvitesSequel.Components

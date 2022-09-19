@@ -1,12 +1,12 @@
 ﻿using PartyInvitesSequel.Models.Interfaces;
 
-namespace PartyInvitesSequel.Models
+namespace PartyInvitesSequel.Models.Helpers
 {
     public class GuestList : IPersonList
     {
         public List<Guest> list { get; set; }
         public static GuestList guestList { get; set; }
-        
+
         public List<Guest> GetAll => list;
 
         public GuestList()
@@ -16,7 +16,7 @@ namespace PartyInvitesSequel.Models
 
         public static GuestList Instance()
         {
-            if(guestList == null)
+            if (guestList == null)
             {
                 guestList = new GuestList();
             }

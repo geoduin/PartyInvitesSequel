@@ -7,6 +7,6 @@
         void AddValue(T value);
         T GetFromList(int index);
         bool UpdateValue(T value);
-
+        void DeleteValue(int i);
     }
 }

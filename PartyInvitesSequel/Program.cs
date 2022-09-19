@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PartyInvitesSequel.Data;
 using PartyInvitesSequel.Models;
+using PartyInvitesSequel.Models.Helpers;
 using PartyInvitesSequel.Models.Interfaces;
 using PartyInvitesSequel.Models.Repositories;
 
@@ -41,7 +42,7 @@ app.MapDefaultControllerRoute();
 //Mapping to other Controller and view
 app.MapControllerRoute(
     name: "FormParty",
-    pattern: "Form_Party/{index?}",
-    defaults: new { controller = "Profile", action = "Profile" });
+    pattern: "{controller}/Form_Party/{index?}",
+    defaults: new { controller = "Profile", action = "Profile"});
 
 app.Run();

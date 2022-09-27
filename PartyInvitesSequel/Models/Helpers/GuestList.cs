@@ -25,6 +25,8 @@ namespace PartyInvitesSequel.Models.Helpers
 
         public void AddPersonToList(Guest guest)
         {
+
+            //Test functionality
             list.Add(guest);
         }
 
